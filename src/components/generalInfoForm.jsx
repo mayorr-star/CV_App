@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
 import Input, { TextArea } from "./input";
 import Button from "./button";
+import { useState } from "react";
 
 const GeneralInfoForm = ({ handlechange, data }) => {
   const { firstName, lastName, phoneNumber, email, statement } = data;
+  const [activeIndex, setActiveIndex] = useState(1);
 
   return (
     <fieldset>
@@ -14,12 +16,16 @@ const GeneralInfoForm = ({ handlechange, data }) => {
           text="First Name:"
           handlechange={handlechange}
           value={firstName}
+          placeholder="First Name"
+          isActive={activeIndex === 1}
         />
         <Input
           name="lastName"
           text="Last Name:"
           handlechange={handlechange}
           value={lastName}
+          placeholder="Last Name"
+          isActive={activeIndex === 1}
         />
         <Input
           type="tel"
@@ -27,6 +33,8 @@ const GeneralInfoForm = ({ handlechange, data }) => {
           text="Phone Number:"
           handlechange={handlechange}
           value={phoneNumber}
+          isActive={activeIndex === 1}
+          placeholder="e.g. 0503672189"
         />
         <Input
           type="email"
@@ -34,16 +42,19 @@ const GeneralInfoForm = ({ handlechange, data }) => {
           text="Email:"
           handlechange={handlechange}
           value={email}
+          isActive={activeIndex === 1}
+          placeholder="e.g. sample@gmail.com"
         />
         <TextArea
           text="Professional Statement:"
           id="statement"
           handlechange={handlechange}
           value={statement}
+          isActive={activeIndex === 1}
         />
         <div className="button_container">
-          <Button text="Edit" />
-          <Button text="Confirm" />
+          <Button text="Edit" isActive={activeIndex === 0} handleClick={() => setActiveIndex(1)}/>
+          <Button text="Confirm" isActive={activeIndex === 1} handleClick={() => setActiveIndex(0)}/>
         </div>
       </div>
     </fieldset>
