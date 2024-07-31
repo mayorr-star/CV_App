@@ -1,14 +1,15 @@
+/* eslint-disable react/prop-types */
 import Input from "./input";
 import Button from "./button";
 
-const EducationalExpForm = () => {
+const EducationalExpForm = ({handleChange, keyId}) => {
     return (
-        <fieldset>
+        <fieldset data-key={keyId}>
             <legend>Education</legend>
             <div className="form_controls">
-                <Input name="school" text="School Name:"/>
-                <Input name="program" text="Title of Study:"/>
-                <Input name="duration" text="Date of Study:"/>
+                <Input name="schoolName" text="School Name:" handlechange={handleChange}/>
+                <Input name="program" text="Title of Study:" handlechange={handleChange}/>
+                <Input name="duration" text="Date of Study:" handlechange={handleChange}/>
             </div>
             <div className="button_container">
                 <Button text="Edit"/>
