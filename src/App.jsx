@@ -1,35 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import Form from "./components/form";
+import CV from "./components/CV";
+import data from "./components/data";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [generalInfo, setGeneralInfo] = useState(data.generalInfo);
+  const [educationInfo, setEducationInfo] = useState(data.educationInfo);
+  const [workInfo, setWorkInfo] = useState(data.workInfo);
+  
+  const handleGeneralInfo = (e) => {
+    const newInfo = {...generalInfo, [e.target.id]: e.target.value }
+    setGeneralInfo(newInfo);
+  }
+
+  const handleEducationInfo = (e) => {
+    const newInfo = {...educationInfo, [e.target.id]: e.target.value }
+    setEducationInfo(newInfo);
+  }
+
+  const handleWorkInfo = (e) => {
+    const newInfo = {...workInfo, [e.target.id]: e.target.value }
+    setWorkInfo(newInfo);
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <header>
+        <h1>CV APP</h1>
+      </header>
+      <main>
+        <div className="content">
+          <Form handleGeneralInfo={handleGeneralInfo}handleEducationInfo={handleEducationInfo} handleWorkInfo={handleWorkInfo} generalInfo={generalInfo} educationInfo={educationInfo} workInfo={workInfo}/>
+          <CV generalInfo={generalInfo} educationInfo={educationInfo} workInfo={workInfo}/>
+        </div>
+      </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
