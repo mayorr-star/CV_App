@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-const Button = ({type = "button", text}) => {
+const Button = ({type = "button", text, handleClick, isActive}) => {
     return (
-        <button type={type}>{text}</button>
+        <button type={type} onClick={handleClick} disabled={!isActive}>{text}</button>
     )
 }
 
