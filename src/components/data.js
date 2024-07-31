@@ -1,3 +1,4 @@
+import {v4 as uuidv4} from "uuid";
 const data = {
   generalInfo: {
     firstName: "",
@@ -8,15 +9,21 @@ const data = {
   },
   educationInfo: [
     {
-      id: "",
-      schoolName: "",
-      program: "",
-      duration: "",
+      id: uuidv4(),
+      schoolName: "1",
+      program: "1",
+      duration: "1",
+    },
+    {
+      id: uuidv4(),
+      schoolName: "2",
+      program: "2",
+      duration: "2",
     },
   ],
   workInfo: [
     {
-      id: "",
+      id: uuidv4(),
       companyName: "",
       position: "",
       duration: "",
