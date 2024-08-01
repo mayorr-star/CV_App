@@ -31,8 +31,14 @@ function App() {
     const newInfo = [];
     for (const info of workInfo) {
       if (grandParent.dataset.key === info.id) {
-        info[e.target.id] = e.target.value;
+        if (e.target.id === "roles") {
+          const rolesData = e.target.value.split("\n");
+          info[e.target.id] = rolesData;
+        } else {
+          info[e.target.id] = e.target.value;
+        }
       }
+      console.log(newInfo)
       newInfo.push(info);
     }
     setWorkInfo(newInfo);
