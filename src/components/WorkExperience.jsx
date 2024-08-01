@@ -5,7 +5,7 @@ import { validateWorkHistoryInfo } from "./validate";
 import { useState } from "react";
 
 
-const WorkExperienceForm = ({handleChange, keyId}) => {
+const WorkExperienceForm = ({handleChange, keyId, validate}) => {
   const [activeIndex, setActiveIndex] = useState(1);
   return (
     <fieldset data-key={keyId}>
@@ -19,7 +19,11 @@ const WorkExperienceForm = ({handleChange, keyId}) => {
       <div className="button_container">
         <Button text="Edit" isActive={activeIndex === 0} handleClick={() => setActiveIndex(1)}/>
         <Button text="Confirm" isActive={activeIndex === 1} handleClick={(e) => {
-          if (!validateWorkHistoryInfo(e)) return;
+          if (!validateWorkHistoryInfo(e)) {
+            validate("workInfo", false);
+            return;
+          }
+          validate("workInfo", true);
           setActiveIndex(0);
           }}/>
       </div>

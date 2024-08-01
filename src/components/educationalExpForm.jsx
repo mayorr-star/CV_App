@@ -4,7 +4,7 @@ import Button from "./button";
 import { useState } from "react";
 import { validateEducationInfo } from "./validate";
 
-const EducationalExpForm = ({handleChange, keyId}) => {
+const EducationalExpForm = ({handleChange, keyId, validate}) => {
     const [activeIndex, setActiveIndex] = useState(1)
     return (
         <fieldset data-key={keyId}>
@@ -17,7 +17,11 @@ const EducationalExpForm = ({handleChange, keyId}) => {
             <div className="button_container">
             <Button text="Edit" isActive={activeIndex === 0} handleClick={() => setActiveIndex(1)}/>
             <Button text="Confirm" isActive={activeIndex === 1} handleClick={(e) => {
-                if(!validateEducationInfo(e)) return;
+                if(!validateEducationInfo(e)) {
+                    validate("educationInfo", false);
+                    return
+                }
+                validate("educationInfo", true);
                 setActiveIndex(0)
             }}/>
             </div>
