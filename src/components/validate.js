@@ -41,10 +41,10 @@ const validateGeneralInfo = (e) => {
     setSuccess(statement);
   }
 
-  const isValidEmail = (email) => {
-    const regex = /^[^\s@]+@[@\s@]+\.[^\s@]+$/;
-    return regex.text(email);
-  };
+  const isValidEmail = email => {
+    const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return regex.test(String(email).toLowerCase());
+  }
 
   if (emailValue === "") {
     isValid = false;
@@ -152,3 +152,5 @@ const setSuccess = (element) => {
   inputControl.classList.add("success");
 };
 export { validateGeneralInfo, validateEducationInfo, validateWorkHistoryInfo };
+
+
