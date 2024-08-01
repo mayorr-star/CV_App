@@ -2,8 +2,8 @@ import { useState } from "react";
 import Form from "./components/form";
 import CV from "./components/CV";
 import data from "./modules/data";
-import "./App.css";
 import { v4 as uuidv4 } from "uuid";
+import "./styles/App.css"
 
 function App() {
   const [generalInfo, setGeneralInfo] = useState(data.generalInfo);
