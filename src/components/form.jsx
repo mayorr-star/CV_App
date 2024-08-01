@@ -2,6 +2,7 @@
 import GeneralInfoForm from "./generalInfoForm";
 import EducationalExpForm from "./educationalExpForm";
 import WorkExperienceForm from "./WorkExperience";
+import Button from "./button";
 
 const Form = ({
   handleGeneralInfo,
@@ -32,6 +33,9 @@ const Form = ({
           />
         );
       })}
+      <div className="submit">
+        <Button type="submit" text="Submit" isActive={true}/>
+      </div>
     </form>
   );
 };
