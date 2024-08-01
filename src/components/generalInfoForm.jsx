@@ -2,7 +2,7 @@
 import Input, { TextArea } from "./input";
 import Button from "./button";
 import { useState } from "react";
-import { validateGeneralInfo } from "./validate";
+import { validateGeneralInfo } from "../modules/validate";
 
 const GeneralInfoForm = ({ handlechange, data, validate }) => {
   const { firstName, lastName, phoneNumber, email, statement } = data;

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import Button from "./button";
 import Input, { TextArea } from "./input";
-import { validateWorkHistoryInfo } from "./validate";
+import { validateWorkHistoryInfo } from "../modules/validate";
 import { useState } from "react";
 
 

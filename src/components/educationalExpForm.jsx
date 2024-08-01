@@ -2,7 +2,7 @@
 import Input from "./input";
 import Button from "./button";
 import { useState } from "react";
-import { validateEducationInfo } from "./validate";
+import { validateEducationInfo } from "../modules/validate";
 
 const EducationalExpForm = ({handleChange, keyId, validate}) => {
     const [activeIndex, setActiveIndex] = useState(1)
