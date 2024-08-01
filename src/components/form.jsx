@@ -12,7 +12,9 @@ const Form = ({
   generalInfo,
   educationInfo,
   workInfo,
-  isSubmitted
+  isSubmitted,
+  addEduInfo,
+  addWorkInfo
 }) => {
   const [isValid, setIsValid] = useState({generalInfo: false, 
     educationInfo:false, 
@@ -40,6 +42,7 @@ const Form = ({
           />
         );
       })}
+      <Button text="Add New Info" isActive={true} handleClick={addEduInfo}/>
       {workInfo.map((info) => {
         return (
           <WorkExperienceForm
@@ -50,6 +53,7 @@ const Form = ({
           />
         );
       })}
+      <Button text="Add New Info" isActive={true} handleClick={addWorkInfo}/>
       <div className="submit">
         <Button type="submit" text="Submit" isActive={true}/>
       </div>
