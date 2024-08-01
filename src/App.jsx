@@ -1,8 +1,9 @@
 import { useState } from "react";
 import Form from "./components/form";
 import CV from "./components/CV";
-import data from "./components/data";
+import data from "./modules/data";
 import "./App.css";
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
   const [generalInfo, setGeneralInfo] = useState(data.generalInfo);
@@ -44,6 +45,29 @@ function App() {
     setWorkInfo(newInfo);
   };
 
+  const addNewEducationInfo = () => {
+    const newInfo = {
+      id: uuidv4(),
+      schoolName: "",
+      program: "",
+      duration: ""
+    }
+    const updatedInfo = [...educationInfo, newInfo];
+    setEducationInfo(updatedInfo)
+  }
+
+  const addNewWorkInfo = () => {
+    const newInfo = {
+      id: uuidv4(),
+      companyName: "",
+      position: "",
+      duration: "",
+      roles: []
+    }
+    const updatedInfo = [...workInfo, newInfo];
+    setWorkInfo(updatedInfo);
+  }
+
   return (
     <>
       <header>
@@ -60,6 +84,8 @@ function App() {
               educationInfo={educationInfo}
               workInfo={workInfo}
               isSubmitted={() => setIsSubmitted(true)}
+              addEduInfo={addNewEducationInfo}
+              addWorkInfo={addNewWorkInfo}
             />
             <CV
               generalInfo={generalInfo}
