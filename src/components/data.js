@@ -27,7 +27,7 @@ const data = {
       companyName: "",
       position: "",
       duration: "",
-      roles: "",
+      roles: [],
     },
   ],
 };
