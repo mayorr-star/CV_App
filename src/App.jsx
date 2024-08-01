@@ -8,6 +8,7 @@ function App() {
   const [generalInfo, setGeneralInfo] = useState(data.generalInfo);
   const [educationInfo, setEducationInfo] = useState(data.educationInfo);
   const [workInfo, setWorkInfo] = useState(data.workInfo);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleGeneralInfo = (e) => {
     const newInfo = { ...generalInfo, [e.target.id]: e.target.value };
@@ -38,7 +39,6 @@ function App() {
           info[e.target.id] = e.target.value;
         }
       }
-      console.log(newInfo)
       newInfo.push(info);
     }
     setWorkInfo(newInfo);
@@ -50,21 +50,30 @@ function App() {
         <h1>CV APP</h1>
       </header>
       <main>
-        <div className="content">
-          <Form
-            handleGeneralInfo={handleGeneralInfo}
-            handleEducationInfo={(e) => handleEducationInfo(e)}
-            handleWorkInfo={(e) => handleWorkInfo(e)}
-            generalInfo={generalInfo}
-            educationInfo={educationInfo}
-            workInfo={workInfo}
-          />
+        {!isSubmitted ? (
+          <div className="content">
+            <Form
+              handleGeneralInfo={handleGeneralInfo}
+              handleEducationInfo={(e) => handleEducationInfo(e)}
+              handleWorkInfo={(e) => handleWorkInfo(e)}
+              generalInfo={generalInfo}
+              educationInfo={educationInfo}
+              workInfo={workInfo}
+              isSubmitted={() => setIsSubmitted(true)}
+            />
+            <CV
+              generalInfo={generalInfo}
+              educationInfo={educationInfo}
+              workInfo={workInfo}
+            />
+          </div>
+        ) : (
           <CV
             generalInfo={generalInfo}
             educationInfo={educationInfo}
             workInfo={workInfo}
           />
-        </div>
+        )}
       </main>
     </>
   );
