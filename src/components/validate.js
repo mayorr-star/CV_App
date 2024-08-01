@@ -1,9 +1,10 @@
-const validateGeneralInfo = () => {
-  const firstName = document.getElementById("firstName");
-  const lastName = document.getElementById("lastName");
-  const phoneNumber = document.getElementById("phoneNumber");
-  const email = document.getElementById("email");
-  const statement = document.getElementById("statement");
+const validateGeneralInfo = (e) => {
+    const parentFieldset = e.target.closest("fieldset");
+  const firstName = parentFieldset.querySelector("#firstName");
+  const lastName = parentFieldset.querySelector("#lastName");
+  const phoneNumber = parentFieldset.querySelector("#phoneNumber");
+  const email = parentFieldset.querySelector("#email");
+  const statement = parentFieldset.querySelector("#statement");
   const firstNameValue = firstName.value.trim();
   const lastNameValue = lastName.value.trim();
   const phoneNumberValue = phoneNumber.value.trim();
@@ -58,11 +59,43 @@ const validateGeneralInfo = () => {
   return isValid;
 };
 
+const validateEducationInfo = (e) => {
+    const parentFieldset = e.target.closest("fieldset");
+    const schoolName = parentFieldset.querySelector("#schoolName");
+    const programOfStudy = parentFieldset.querySelector("#program");
+    const daetOfStudy = parentFieldset.querySelector("#duration");
+    const schoolNameValue = schoolName.value.trim();
+    const programOfStudyValue = programOfStudy.value.trim();
+    const daetOfStudyValue = daetOfStudy.value.trim();
+    let isValid = true;
+
+    if (schoolNameValue === "") {
+        isValid = false;
+        setError(schoolName, "Provide name of school");
+    } else {
+        setSuccess(schoolName)
+    }
+
+    if (programOfStudyValue === "") {
+        isValid = false;
+        setError(programOfStudy, "Provide title of study");
+    } else {
+        setSuccess(programOfStudy)
+    }
+
+    if (daetOfStudyValue === "") {
+        isValid = false;
+        setError(daetOfStudy, "Provide duration of study")
+    } else {
+        setSuccess(daetOfStudy)
+    }
+
+    return isValid;
+}
 
 const setError = (element, message) => {
   const inputControl = element.parentNode;
   const errorDisplay = inputControl.querySelector(".error");
-  console.log(inputControl)
   errorDisplay.textContent = message;
   inputControl.classList.add("error");
   inputControl.classList.remove("success");
@@ -75,4 +108,4 @@ const setSuccess = (element) => {
   inputControl.classList.remove("error");
   inputControl.classList.add("success");
 };
-export { validateGeneralInfo };
+export { validateGeneralInfo, validateEducationInfo };
