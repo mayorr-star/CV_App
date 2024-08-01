@@ -93,6 +93,49 @@ const validateEducationInfo = (e) => {
     return isValid;
 }
 
+const validateWorkHistoryInfo = (e) => {
+    const parentFieldset = e.target.closest("fieldset");
+    const companyName = parentFieldset.querySelector("#companyName");
+    const position = parentFieldset.querySelector("#position");
+    const duration = parentFieldset.querySelector("#duration");
+    const roles = parentFieldset.querySelector("#roles");
+    const companyNameValue = companyName.value.trim();
+    const positionValue = position.value.trim();
+    const durationValue = duration.value.trim();
+    const rolesValue = roles.value.trim();
+    let isValid = true;
+
+    if (companyNameValue === "") {
+        isValid = false;
+        setError(companyName, "Company name is required"); 
+    } else {
+        setSuccess(companyName)
+    }
+
+    if (positionValue === "") {
+        isValid = false;
+        setError(position, "Position title is required"); 
+    } else {
+        setSuccess(position)
+    }
+
+    if (rolesValue === "") {
+        isValid = false;
+        setError(roles, "Provide your roles"); 
+    } else {
+        setSuccess(roles)
+    }
+
+    if (durationValue === "") {
+        isValid = false;
+        setError(duration, "Provide duration of stay"); 
+    } else {
+        setSuccess(duration)
+    }
+
+    return isValid
+}
+
 const setError = (element, message) => {
   const inputControl = element.parentNode;
   const errorDisplay = inputControl.querySelector(".error");
@@ -108,4 +151,4 @@ const setSuccess = (element) => {
   inputControl.classList.remove("error");
   inputControl.classList.add("success");
 };
-export { validateGeneralInfo, validateEducationInfo };
+export { validateGeneralInfo, validateEducationInfo, validateWorkHistoryInfo };

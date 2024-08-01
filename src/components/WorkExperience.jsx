@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import Button from "./button";
 import Input, { TextArea } from "./input";
-
+import { validateWorkHistoryInfo } from "./validate";
 import { useState } from "react";
+
 
 const WorkExperienceForm = ({handleChange, keyId}) => {
   const [activeIndex, setActiveIndex] = useState(1);
@@ -17,7 +18,10 @@ const WorkExperienceForm = ({handleChange, keyId}) => {
       </div>
       <div className="button_container">
         <Button text="Edit" isActive={activeIndex === 0} handleClick={() => setActiveIndex(1)}/>
-        <Button text="Confirm" isActive={activeIndex === 1} handleClick={() => setActiveIndex(0)}/>
+        <Button text="Confirm" isActive={activeIndex === 1} handleClick={(e) => {
+          if (!validateWorkHistoryInfo(e)) return;
+          setActiveIndex(0);
+          }}/>
       </div>
     </fieldset>
   );

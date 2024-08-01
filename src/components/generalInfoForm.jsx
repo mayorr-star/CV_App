@@ -2,6 +2,7 @@
 import Input, { TextArea } from "./input";
 import Button from "./button";
 import { useState } from "react";
+import { validateGeneralInfo } from "./validate";
 
 const GeneralInfoForm = ({ handlechange, data }) => {
   const { firstName, lastName, phoneNumber, email, statement } = data;
@@ -54,7 +55,10 @@ const GeneralInfoForm = ({ handlechange, data }) => {
         />
         <div className="button_container">
           <Button text="Edit" isActive={activeIndex === 0} handleClick={() => setActiveIndex(1)}/>
-          <Button text="Confirm" isActive={activeIndex === 1} handleClick={() => setActiveIndex(0)}/>
+          <Button text="Confirm" isActive={activeIndex === 1} handleClick={(e) => {
+            if(!validateGeneralInfo(e)) return;
+            setActiveIndex(0)
+          }}/>
         </div>
       </div>
     </fieldset>
