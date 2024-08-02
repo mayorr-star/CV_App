@@ -42,7 +42,7 @@ const Form = ({
           />
         );
       })}
-      <Button text="Add New Info" isActive={true} handleClick={addEduInfo}/>
+      <Button text="Add New Info" isActive={true} handleClick={addEduInfo} classId="add_new_btn"/>
       {workInfo.map((info) => {
         return (
           <WorkExperienceForm
@@ -53,7 +53,7 @@ const Form = ({
           />
         );
       })}
-      <Button text="Add New Info" isActive={true} handleClick={addWorkInfo}/>
+      <Button text="Add New Info" isActive={true} handleClick={addWorkInfo} classId="add_new_btn"/>
       <div className="submit">
         <Button type="submit" text="Submit" isActive={true}/>
       </div>
