@@ -49,6 +49,7 @@ const GeneralInfoForm = ({ handlechange, data, validate }) => {
         <TextArea
           text="Professional Statement:"
           id="statement"
+          dataId="statement"
           handlechange={handlechange}
           value={statement}
           isActive={activeIndex === 1}
