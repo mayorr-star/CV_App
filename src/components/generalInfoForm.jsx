@@ -9,7 +9,7 @@ const GeneralInfoForm = ({ handlechange, data, validate }) => {
   const [activeIndex, setActiveIndex] = useState(1);
 
   return (
-    <fieldset>
+    <fieldset className="hide general">
       <legend>General Information</legend>
       <div className="form_controls">
         <Input
