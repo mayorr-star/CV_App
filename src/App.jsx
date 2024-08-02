@@ -12,16 +12,16 @@ function App() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleGeneralInfo = (e) => {
-    const newInfo = { ...generalInfo, [e.target.id]: e.target.value };
+    const newInfo = { ...generalInfo, [e.target.dataset.id]: e.target.value };
     setGeneralInfo(newInfo);
   };
 
   const handleEducationInfo = (e) => {
-    const grandParent = e.target.parentNode.parentNode;
+    const fieldsetParent = e.target.closest("fieldset");
     const newInfo = [];
     for (const info of educationInfo) {
-      if (grandParent.dataset.key === info.id) {
-        info[e.target.id] = e.target.value;
+      if (fieldsetParent.dataset.key === info.id) {
+        info[e.target.dataset.id] = e.target.value;
       }
       newInfo.push(info);
     }
@@ -29,15 +29,15 @@ function App() {
   };
 
   const handleWorkInfo = (e) => {
-    const grandParent = e.target.parentNode.parentNode;
+    const fieldsetParent = e.target.closest("fieldset");
     const newInfo = [];
     for (const info of workInfo) {
-      if (grandParent.dataset.key === info.id) {
-        if (e.target.id === "roles") {
+      if (fieldsetParent.dataset.key === info.id) {
+        if (e.target.dataset.id === "roles") {
           const rolesData = e.target.value.split("\n");
-          info[e.target.id] = rolesData;
+          info[e.target.dataset.id] = rolesData;
         } else {
-          info[e.target.id] = e.target.value;
+          info[e.target.dataset.id] = e.target.value;
         }
       }
       newInfo.push(info);
@@ -70,7 +70,7 @@ function App() {
 
   return (
     <>
-      <header>
+      <header className="main_header">
         <h1>CV APP</h1>
       </header>
       <main>
