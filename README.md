@@ -1,8 +1,29 @@
-# React + Vite
+# CV Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A CV Application 
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Overview](#overview)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+- [License](#lisence)
+
+## Overview
+
+### Links
+
+- Live Site URL :[live site URL](https://mayorr-star.github.io/homepage/)
+
+## My Process
+
+### Built With
+
+- CSS Media Queries
+
+- CSS Flexbox
+- React
+
+## LICENSE
+This project is MIT licensed
