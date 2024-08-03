@@ -4,7 +4,6 @@ import EducationalExpForm from "./educationalExpForm";
 import WorkExperienceForm from "./WorkExperience";
 import Button from "./button";
 import { useState } from "react";
-import toggleForms from "../modules/helper";
 
 const Form = ({
   handleGeneralInfo,
@@ -27,6 +26,16 @@ const Form = ({
     const newObj = { ...isValid, [form]: status };
     setIsValid(newObj);
   };
+
+  const [genInfoToggleState, setGenInfoToggleState] = useState(false);
+  let genToggleClassName = genInfoToggleState ? "show" : ""
+
+  const [eduInfoToggleState, setEduInfoToggleState] = useState(false);
+  let eduToggleClassName = eduInfoToggleState ? "show" : ""
+
+  const [workInfoToggleState, setWorkInfoToggleState] = useState(false);
+  let workToggleClassName = workInfoToggleState ? "show" : ""
+
   return (
     <form
       action=""
@@ -41,26 +50,19 @@ const Form = ({
       }}
     >
       <div className="render_btns">
-        <Button text="General Information" isActive={true} handleClick={(e) => toggleForms(e)} classId="general render_btn"/>
-        <Button text="Education Information" isActive={true} handleClick={(e) => {
-          toggleForms(e)
-          const button = document.querySelector(".add_new_btn.edu")
-          button.classList.toggle("show")
-          }} classId="edu render_btn"/>
-        <Button text="Work History" isActive={true} handleClick={(e) => {
-          toggleForms(e)
-          const button = document.querySelector(".add_new_btn.work")
-          button.classList.toggle("show")
-          }} classId="work render_btn"/>
+        <Button text="General Information" isActive={true} handleClick={() => setGenInfoToggleState(!genInfoToggleState)} classId="general render_btn"/>
+        <Button text="Education Information" isActive={true} handleClick={() => {setEduInfoToggleState(!eduInfoToggleState)}} classId="edu render_btn"/>
+        <Button text="Work History" isActive={true} handleClick={() => {setWorkInfoToggleState(!workInfoToggleState)}} classId="work render_btn"/>
       </div>
       {
       <GeneralInfoForm
       handlechange={handleGeneralInfo}
       data={generalInfo}
       validate={updateFormValidity}
+      showClass={genToggleClassName}
       />
     }
-    <div className="education_section hide">
+    <div className={"education_section hide" + " " + eduToggleClassName}>
       {educationInfo.map((info) => {
         return (
           <EducationalExpForm
@@ -77,10 +79,10 @@ const Form = ({
       text="Add New Info"
       isActive={true}
       handleClick={addEduInfo}
-      classId="add_new_btn edu hide"
+      classId={"add_new_btn edu hide" + " " + eduToggleClassName}
       />
     }
-    <div className="work_section hide">
+    <div className={"work_section hide" + " " + workToggleClassName}>
       {workInfo.map((info) => {
         return (
           <WorkExperienceForm
@@ -97,7 +99,7 @@ const Form = ({
       text="Add New Info"
       isActive={true}
       handleClick={addWorkInfo}
-      classId="add_new_btn work hide"
+      classId={"add_new_btn work hide" + " " + workToggleClassName}
       />
     }
       <div className="submit">
