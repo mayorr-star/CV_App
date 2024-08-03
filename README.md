@@ -14,7 +14,7 @@ A CV Application
 
 ### Links
 
-- [Live site URL](https://mayorr-star.github.io/homepage/)
+- [Live site URL](https://cv-app-pi-lovat.vercel.app/)
 
 ## My Process
 
