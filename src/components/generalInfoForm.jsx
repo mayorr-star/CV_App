@@ -4,12 +4,12 @@ import Button from "./button";
 import { useState } from "react";
 import { validateGeneralInfo } from "../modules/validate";
 
-const GeneralInfoForm = ({ handlechange, data, validate }) => {
+const GeneralInfoForm = ({ handlechange, data, validate, showClass }) => {
   const { firstName, lastName, phoneNumber, email, statement } = data;
   const [activeIndex, setActiveIndex] = useState(1);
 
   return (
-    <fieldset className="hide general">
+    <fieldset className={"hide general" + " " + showClass}>
       <legend>General Information</legend>
       <div className="form_controls">
         <Input
