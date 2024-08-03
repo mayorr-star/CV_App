@@ -5,20 +5,14 @@ const data = {
     lastName: "",
     phoneNumber: "",
     email: "",
-    statement: "",
+    statement: ""
   },
   educationInfo: [
     {
       id: uuidv4(),
-      schoolName: "1",
-      program: "1",
-      duration: "1",
-    },
-    {
-      id: uuidv4(),
-      schoolName: "2",
-      program: "2",
-      duration: "2",
+      schoolName: "",
+      program: "",
+      duration: "",
     },
   ],
   workInfo: [
@@ -27,8 +21,8 @@ const data = {
       companyName: "",
       position: "",
       duration: "",
-      roles: [],
+      roles: []
     },
-  ],
+  ]
 };
 export default data;
