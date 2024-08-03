@@ -212,3 +212,37 @@ ul li {
   font-family: "oswald_bold";
   margin-right: 7px;
 }
+
+/* Mobile */
+@media  (max-width: 500px) {
+  .content{
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .CV{
+    flex-direction: column;
+  }
+
+  .CV .main_content{
+    flex: 1;
+    max-width: none;
+  }
+}
+
+/* Tablet */
+@media (min-width:500px) and (max-width: 1000px) {
+  .content{
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .CV .main_content{
+    flex: 1;
+    max-width: none;
+  }
+
+  .aside{
+    flex: 1;
+  }
+}
