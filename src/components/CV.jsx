@@ -17,7 +17,7 @@ export default function CV({ generalInfo, educationInfo, workInfo }) {
             {workInfo.map((info) => {
               return (
                 <li key={info.id}className="work_li">
-                  <span className="position">{info.position + ", "}</span>
+                  <span className="position">{info.position + " "}</span>
                   <span>{info.duration}</span>
                   <span className="company">{info.companyName}</span>
                   <ul>
