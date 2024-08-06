@@ -6,6 +6,11 @@ header.main_header{
   font-family: "oswald_bold", 'Times New Roman', Times, serif;
 }
 
+.center{
+  display: flex;
+  justify-content: center;
+}
+
 .content{
   display: flex;
   justify-content: space-evenly;
