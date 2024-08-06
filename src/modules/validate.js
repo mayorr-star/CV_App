@@ -61,9 +61,10 @@ const validateGeneralInfo = (e) => {
 
 const validateEducationInfo = (e) => {
     const parentFieldset = e.target.closest("fieldset");
-    const schoolName = parentFieldset.querySelector("#schoolName");
-    const programOfStudy = parentFieldset.querySelector("#program");
-    const daetOfStudy = parentFieldset.querySelector("#duration");
+    const key = parentFieldset.dataset.key;
+    const schoolName = parentFieldset.querySelector(`#schoolName${key}`);
+    const programOfStudy = parentFieldset.querySelector(`#program${key}`);
+    const daetOfStudy = parentFieldset.querySelector(`#duration${key}`);
     const schoolNameValue = schoolName.value.trim();
     const programOfStudyValue = programOfStudy.value.trim();
     const daetOfStudyValue = daetOfStudy.value.trim();
@@ -95,10 +96,11 @@ const validateEducationInfo = (e) => {
 
 const validateWorkHistoryInfo = (e) => {
     const parentFieldset = e.target.closest("fieldset");
-    const companyName = parentFieldset.querySelector("#companyName");
-    const position = parentFieldset.querySelector("#position");
-    const duration = parentFieldset.querySelector("#duration");
-    const roles = parentFieldset.querySelector("#roles");
+    const key = parentFieldset.dataset.key;
+    const companyName = parentFieldset.querySelector(`#companyName${key}`);
+    const position = parentFieldset.querySelector(`#position${key}`);
+    const duration = parentFieldset.querySelector(`#duration${key}`);
+    const roles = parentFieldset.querySelector(`#roles`);
     const companyNameValue = companyName.value.trim();
     const positionValue = position.value.trim();
     const durationValue = duration.value.trim();
