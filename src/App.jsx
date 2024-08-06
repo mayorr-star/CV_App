@@ -16,6 +16,7 @@ function App() {
     setGeneralInfo(newInfo);
   };
 
+  
   const handleEducationInfo = (e) => {
     const fieldsetParent = e.target.closest("fieldset");
     const newInfo = [];
@@ -44,7 +45,7 @@ function App() {
     }
     setWorkInfo(newInfo);
   };
-
+  
   const addNewEducationInfo = () => {
     const newInfo = {
       id: uuidv4(),
@@ -55,7 +56,7 @@ function App() {
     const updatedInfo = [...educationInfo, newInfo];
     setEducationInfo(updatedInfo)
   }
-
+  
   const addNewWorkInfo = () => {
     const newInfo = {
       id: uuidv4(),
@@ -67,13 +68,14 @@ function App() {
     const updatedInfo = [...workInfo, newInfo];
     setWorkInfo(updatedInfo);
   }
-
+  
+  let isSubmittedClass = isSubmitted ? "center" : undefined;
   return (
     <>
       <header className="main_header">
         <h1>CV APP</h1>
       </header>
-      <main>
+      <main className={isSubmittedClass}>
         {!isSubmitted ? (
           <div className="content">
             <Form
